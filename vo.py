@@ -38,7 +38,8 @@ class SimpleVO:
         R, t = np.eye(3, dtype=np.float64), np.zeros((3, 1), dtype=np.float64)
         for frame_path in self.frame_paths[1:]:
             img = cv.imread(frame_path)
-
+            #TODO: compute camera pose here
+            
             queue.put((R, t))
              
             cv.imshow('frame', img)
