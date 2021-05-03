@@ -7,7 +7,7 @@ import multiprocessing as mp
 class SimpleVO:
     def __init__(self, args):
         camera_params = np.load(args.camera_parameters, allow_pickle=True)[()]
-        self.K = camera_params['K'].astype(np.float64)
+        self.K = camera_params['K']
         self.dist = camera_params['dist']
         
         self.frame_paths = sorted(list(glob.glob(os.path.join(args.input, '*.png'))))
