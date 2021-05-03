@@ -47,8 +47,8 @@ class SimpleVO:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('input')
-    parser.add_argument('--camera_parameters', default='camera_parameters.npy')
+    parser.add_argument('input', help='directory of sequential frames')
+    parser.add_argument('--camera_parameters', default='camera_parameters.npy', help='npy file of camera parameters')
     args = parser.parse_args()
 
     vo = SimpleVO(args)
