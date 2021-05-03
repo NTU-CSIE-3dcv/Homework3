@@ -19,6 +19,7 @@ class SimpleVO:
         queue = mp.Queue()
         p = mp.Process(target=self.process_frames, args=(queue, ))
         p.start()
+        
         keep_running = True
         while keep_running:
             try:
@@ -32,7 +33,6 @@ class SimpleVO:
             keep_running = keep_running and vis.poll_events()
         vis.destroy_window()
         p.join()
-
 
     def process_frames(self, queue):
         R, t = np.eye(3, dtype=np.float64), np.zeros((3, 1), dtype=np.float64)
